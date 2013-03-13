@@ -11,7 +11,46 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130302230850) do
+ActiveRecord::Schema.define(:version => 20130313011514) do
+
+  create_table "readings", :force => true do |t|
+    t.string   "drug_name"
+    t.float    "result"
+    t.text     "notes"
+    t.integer  "test_id"
+    t.integer  "subject_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "readings", ["subject_id"], :name => "index_readings_on_subject_id"
+  add_index "readings", ["test_id"], :name => "index_readings_on_test_id"
+
+  create_table "subjects", :force => true do |t|
+    t.string   "name"
+    t.text     "notes"
+    t.integer  "reading_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "subjects", ["reading_id"], :name => "index_subjects_on_reading_id"
+
+  create_table "tests", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.date     "date"
+    t.text     "notes"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "tests", ["user_id"], :name => "index_tests_on_user_id"
+
+  create_table "tests_subjects", :id => false, :force => true do |t|
+    t.integer "test_id"
+    t.integer "subject_id"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email"
