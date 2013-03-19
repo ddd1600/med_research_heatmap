@@ -4,7 +4,21 @@
   <div class="btn-group">
     <%= label_tag :name %>
     <%= text_field_tag :name %><br/>
-    <%= file_field_tag :file %>
+    <%= file_field_tag :file, :accept => 'text/csv' %>
     <br/><%= submit_tag "Import CSV", :class => "btn btn-large btn-primary" %>
   </div>
 <% end %>
+
+<h2>Instructions</h2>
+  <ol>
+    <li>This app accepts CSV only! Get a CSV of your .xls with the "Save As" option in Excel.</li>
+    <li>An example of a properly formatted CSV with full usage of all possible columns is <a href="/csv_example.csv">here</a>.</li>
+    <li>An example of a properly formated CSV with the minimum number of columns required is <a href="/csv_example_min.csv">here</a>.</li>
+    <li>As seen, the first column is always the patient identification. Each unique patient ID will create a separate bubble on the motion chart.</li>
+    <li>The second column is always hours after time 0. Its set up that way, but could be changed.</li>
+    <li>Columns 3, 4 and 5 are number columns. Columns 6 and 7 are string identifiers (male/female, Jr/Mr/Ms/Mrs, stable/severe/dead, whatever)</li>
+  </ol>
+
+<iframe width="560" height="315" src="http://www.youtube.com/embed/Z5lg6QAYPyI" frameborder="0" allowfullscreen></iframe>
+
+

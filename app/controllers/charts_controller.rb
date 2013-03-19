@@ -5,4 +5,10 @@ class ChartsController < ApplicationController
     opts = ChartHelper.get_opts
     @chart = GoogleVisualr::Interactive::MotionChart.new(dt, opts)
   end
+  
+  def sample_heat_map
+    dt = ChartHelper.sample_chart
+    opts = ChartHelper.get_opts
+    @chart = GoogleVisualr::Interactive::MotionChart.new(dt, opts)
+  end
 end

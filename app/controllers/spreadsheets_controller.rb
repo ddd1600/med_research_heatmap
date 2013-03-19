@@ -18,8 +18,8 @@ class SpreadsheetsController < ApplicationController
 
   def create
     ary_of_arys = ImportHelper.csv_to_ary_of_arys(params[:file].tempfile)
-    spreadsheet_id = ImportHelper.create_spreadsheet(params[:name], ary_of_arys)
+    spreadsheet_id = ImportHelper.create_spreadsheet(params[:name], ary_of_arys, current_user)
     ImportHelper.create_data_rows(spreadsheet_id, ary_of_arys)
-    redirect_to root_url, :notice => "Spreadsheet uploaded!"
+    redirect_to spreadsheets_path, :notice => "Spreadsheet uploaded!"
   end
 end

@@ -1,6 +1,11 @@
 BootstrapRspecLibioCloneApp::Application.routes.draw do  
+  
+  resources :sessions
   resources :spreadsheets
   resources :users
-  match "heat_map" => "charts#heat_map", :as => "heat_map"
-  root :to => "spreadsheets#index"
+  match "sample_heat_map" => "charts#sample_heat_map"
+  match "heat_map" => "charts#heat_map"
+  match "logout" => "sessions#destroy"
+  match "login" => "sessions#new"
+  root :to => "sessions#new"
 end

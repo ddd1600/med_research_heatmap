@@ -11,8 +11,14 @@
 </p>
 
 <p>
-  <b>Password digest:</b>
-  <%= @user.password_digest %>
+  <b>Spreadsheets Loaded</b>
+  <% @user.spreadsheets.each do |s| %>
+    <%= link_to s.name spreadsheet_path(s.id) %>
+  <% end %>
+  <% if @user.spreadsheets.count == 0 %>
+    <br/>None added yet. <%= link_to "Load your first CSV", new_spreadsheet_path %>
+  <% end %>
+  
 </p>
 
 
