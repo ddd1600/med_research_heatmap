@@ -1,4 +1,6 @@
-BootstrapRspecLibioCloneApp::Application.routes.draw do
+BootstrapRspecLibioCloneApp::Application.routes.draw do  
+  resources :spreadsheets
   resources :users
-  root :to => "users#index"
+  match "heat_map" => "charts#heat_map", :as => "heat_map"
+  root :to => "spreadsheets#index"
 end

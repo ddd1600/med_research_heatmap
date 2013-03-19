@@ -1,0 +1,35 @@
+<h1>Loaded Spreadsheets</h1>
+
+<% @spreadsheets.each do |s| %>
+  <div class="row">
+    <div class="span9">
+      <h2>"<%= s.name %>", loaded <%= time_ago_in_words(s.created_at) %> ago</h2>
+    </div>
+    <div class="span3">
+      <h2><%= link_to "Graph", heat_map_path(:id => s.id) %></h2>
+      <h3><%= link_to "delete", spreadsheet_path(:id => s.id), :method => "delete" %></h3>
+    </div>
+  </div>
+  <table class="table table-hover">
+    <tr>
+      <th>Drug/Procedure Name</th>
+      <th><%= s.x_var_name %></th>
+      <th><%= s.y_var_name %></th>
+      <th><%= s.z_var_name %></th>
+      <th><%= s.a_var_name %></th>
+      <th><%= s.b_var_name %></th>
+      <th><%= s.c_var_name %></th>
+    </tr>
+    <% s.data_rows.each do |dr| %>
+      <tr>
+        <td><%= dr.name %></td>
+        <td><%= dr.x_var %></td>
+        <td><%= dr.y_var %></td>
+        <td><%= dr.z_var %></td>
+        <td><%= dr.a_var %></td>
+        <td><%= dr.b_var %></td>
+        <td><%= dr.c_var %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

@@ -8,6 +8,7 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <script src="http://www.google.com/jsapi"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -20,13 +21,11 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
-        <a class="brand" href="#">Some Store</a>
+        <a class="brand" href="#">CSV to Heatmap</a>
         <div class="nav-collapse">
           <ul class="nav">
-            <li><%= link_to "link 1", users_path %></li>
-            <li><%= link_to "link 2" %></li>
-            <li><%= link_to "link 3" %></li>
-            <li><%= link_to "link 1" %></li>
+            <li><%= link_to "Loaded Spreadsheets", spreadsheets_path %></li>
+            <li><%= link_to "Import Data from CSV", new_spreadsheet_path %></li>
           </ul>
         </div>
       </div>
@@ -35,10 +34,12 @@
 
   <div class="container-fluid">
     <div class="row">
-      <div class="span9"><%= yield %></div>
-      <div class="span3">
-        <h2>About Us</h2>
-          Welcome.
+      <div class="span12">
+        <div style="padding: 0 19px">
+          <div class="row-fluid">
+            <%= yield %>
+          </div>
+        </div>
       </div>
     </div>
   </div>

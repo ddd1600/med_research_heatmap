@@ -11,7 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130313011514) do
+ActiveRecord::Schema.define(:version => 20130319210936) do
+
+  create_table "data_rows", :force => true do |t|
+    t.string   "name"
+    t.float    "x_var"
+    t.float    "y_var"
+    t.integer  "spreadsheet_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.float    "z_var"
+    t.float    "a_var"
+    t.string   "b_var"
+    t.string   "c_var"
+  end
+
+  add_index "data_rows", ["spreadsheet_id"], :name => "index_data_rows_on_spreadsheet_id"
 
   create_table "readings", :force => true do |t|
     t.string   "drug_name"
@@ -25,6 +40,19 @@ ActiveRecord::Schema.define(:version => 20130313011514) do
 
   add_index "readings", ["subject_id"], :name => "index_readings_on_subject_id"
   add_index "readings", ["test_id"], :name => "index_readings_on_test_id"
+
+  create_table "spreadsheets", :force => true do |t|
+    t.string   "name"
+    t.string   "x_var_name"
+    t.string   "y_var_name"
+    t.text     "source"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "z_var_name"
+    t.string   "a_var_name"
+    t.string   "b_var_name"
+    t.string   "c_var_name"
+  end
 
   create_table "subjects", :force => true do |t|
     t.string   "name"
