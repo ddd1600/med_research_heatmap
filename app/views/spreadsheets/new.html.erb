@@ -1,8 +1,6 @@
-<h1>Do not feed data to the bears!</h1>
-
 <%= form_tag spreadsheets_path, :method => "post", multipart: true do %>
   <div class="btn-group">
-    <%= label_tag :name %>
+    <%= label_tag :name, "Dataset Name" %>
     <%= text_field_tag :name %><br/>
     <%= file_field_tag :file, :accept => 'text/csv' %>
     <br/><%= submit_tag "Import CSV", :class => "btn btn-large btn-primary" %>
