@@ -3,7 +3,7 @@ class ImportHelper
     CSV.readlines(file)
   end
   
-  def self.create_spreadsheet(name, ary_of_arys, current_user)
+  def self.create_spreadsheet(name, ary_of_arys, user_id)
     s = Spreadsheet.new
     s.name = name
     5/0 if ary_of_arys[0][1] =~ /\d/
@@ -14,7 +14,7 @@ class ImportHelper
     s.a_var_name = ary_of_arys[0][4] || nil
     s.b_var_name = ary_of_arys[0][5] || nil
     s.c_var_name = ary_of_arys[0][6] || nil
-    s.user_id = current_user.id
+    s.user_id = user_id
     s.source = ary_of_arys
     s.save
     s.id
