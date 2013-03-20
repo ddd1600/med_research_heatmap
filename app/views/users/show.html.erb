@@ -1,3 +1,5 @@
+<h3>Almost there. Now <%= link_to "log in", new_session_path  %>!</h3>
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -15,10 +17,6 @@
   <% @user.spreadsheets.each do |s| %>
     <%= link_to s.name spreadsheet_path(s.id) %>
   <% end %>
-  <% if @user.spreadsheets.count == 0 %>
-    <br/>None added yet. <%= link_to "Load your first CSV", new_spreadsheet_path %>
-  <% end %>
-  
 </p>
 
 
