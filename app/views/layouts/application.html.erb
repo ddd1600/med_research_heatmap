@@ -35,8 +35,12 @@
         <div class="nav-collapse">
           <ul class="nav">
             <% if current_user %>  
-              <li><%= link_to "Loaded Spreadsheets", spreadsheets_path %></li>
-              <li><%= link_to "Import Data from CSV", new_spreadsheet_path %></li>
+              <li><%= link_to "Bubble Charts", spreadsheets_path %></li>
+              <li><%= link_to "Import CSV for Bubble Chart", new_spreadsheet_path %></li>
+              <li class="divider-vertical"></li>
+              <li><%= link_to "Heatmaps", heat_spreadsheets_path %></li>
+              <li><%= link_to "Import Spreadsheet for Heatmap", new_heat_spreadsheet_path %></li>
+              <li class="divider-vertical"></li>
               <li><%= link_to "Log Out", logout_path %></li>
             <% else %>
               <li><%= link_to "Log In", login_path %></li>
@@ -53,6 +57,12 @@
       <div class="span12">
         <div style="padding: 0 19px">
           <div class="row-fluid">
+            <% flash.each do |name, msg| %>
+              <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+                <a class="close" data-dismiss="alert">&#215;</a>
+                  <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+               </div>
+            <% end %>
             <%= yield %>
           </div>
         </div>

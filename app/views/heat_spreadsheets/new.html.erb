@@ -1,0 +1,90 @@
+<%= form_tag heat_spreadsheets_path, :method => "post", multipart: true do %>
+  <div class="btn-group">
+    <%= label_tag :name, "Dataset Name" %>
+    <%= text_field_tag :name %><br/>
+    <%= file_field_tag :file, :accept => 'text/csv' %>
+    <br/><%= submit_tag "Import CSV", :class => "btn btn-large btn-primary" %>
+  </div>
+<% end %>
+
+<h2>Expected Format</h2>
+<h3>Example 1</h3>
+<table class="table table-hover">
+  <tr>
+    <th>DataGroup</th>
+    <th>twenty_four_hours_after</th>
+    <th>forty_eight_hours_after</th>
+    <th>seventy_two_hours_after</th>
+  </tr>
+  <tr>
+    <td>Drug A P1</td>
+    <td>40</td>
+    <td>33</td>
+    <td>73</td>
+  </tr>
+  <tr>
+    <td>Drug A P2</td>
+    <td>32</td>
+    <td>38</td>
+    <td>40</td>
+  </tr>
+  <tr>
+    <td>Drug B P1</td>
+    <td>20</td>
+    <td>70</td>
+    <td>95</td>
+  </tr>
+  <tr>etc...</tr>
+</table>
+
+<h3>Example 2</h3>
+<table class="table table-hover">
+  <tr>
+    <th>DataGroup</th>
+    <th>24</th>
+    <th>72</th>
+    <th>96</th>
+    <th>130</th>
+    <th>154</th>
+  </tr>
+  <tr>
+    <td>Drug A P1</td>
+    <td>40</td>
+    <td>33</td>
+    <td>73</td>
+    <td>80</td>
+    <td>90</td>
+  </tr>
+  <tr>
+    <td>Drug A P2</td>
+    <td>32</td>
+    <td>38</td>
+    <td>40</td>
+    <td>50</td>
+    <td>30</td>
+  </tr>
+  <tr>
+    <td>Drug B P1</td>
+    <td>20</td>
+    <td>70</td>
+    <td>95</td>
+    <td>119</td>
+    <td>122</td>
+  </tr>
+  <tr>
+    <td>etc...</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<div class="well">
+  <h4>As many columns or rows may be added as liked.</h4>
+  <li><b>Adding another row</b> should be <b>adding a new patient/drug entity</b></li>
+  <li><b>Adding another column</b> should be <b>adding another timeslot</b></li>
+  <li>The timeslots should be in order, from earliest to latest.</li>
+  <li>No duplicate DataGroup names are allowed. In the above examples, each row represents a different patient/drug 'data group', where P1 means 'patient 1 for drug X', etc.</li>
+</div>

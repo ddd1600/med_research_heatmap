@@ -1,5 +1,6 @@
 BootstrapRspecLibioCloneApp::Application.routes.draw do  
   
+  resources :heat_spreadsheets
   resources :sessions
   resources :spreadsheets
   resources :users

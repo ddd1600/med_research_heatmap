@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.12'
+gem 'rails'
 
 group :development, :test do
   gem 'sqlite3'
@@ -32,7 +32,6 @@ gem 'awesome_print'
 gem 'lazy_high_charts'
 gem 'google_visualr'
 gem 'httparty'
-gem 'area'
-gem 'geokit-rails3'
-gem 'whenever'
 gem 'watir-webdriver'
+
+gem 'rinruby'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130319223015) do
+ActiveRecord::Schema.define(:version => 20130406225915) do
 
   create_table "data_rows", :force => true do |t|
     t.string   "name"
@@ -27,6 +27,16 @@ ActiveRecord::Schema.define(:version => 20130319223015) do
   end
 
   add_index "data_rows", ["spreadsheet_id"], :name => "index_data_rows_on_spreadsheet_id"
+
+  create_table "heat_spreadsheets", :force => true do |t|
+    t.text     "source"
+    t.integer  "user_id"
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "heat_spreadsheets", ["user_id"], :name => "index_heat_spreadsheets_on_user_id"
 
   create_table "readings", :force => true do |t|
     t.string   "drug_name"
