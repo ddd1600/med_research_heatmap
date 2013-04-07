@@ -1,4 +1,10 @@
 class HeatSpreadsheetsController < ApplicationController
+  
+  def heatmap
+    ChartHelper.dump_png(HeatSpreadsheet.find(params[:id]))
+    redirect_to "/heatmap.png"
+  end
+  
   def index
     @heat_spreadsheets = HeatSpreadsheet.all
   end
@@ -7,9 +13,9 @@ class HeatSpreadsheetsController < ApplicationController
   end
   
   def create
-    ary_of_arys = CSV.parse(params[:file].tempfile)
+    csv_source = File.open(params[:file].tempfile).read
     h = HeatSpreadsheet.new
-    h.source = ary_of_arys.to_json
+    h.source = csv_source
     h.name = params[:name]
     h.save
     redirect_to heat_spreadsheets_path, :notice => "Spreadsheet uploaded!"
@@ -21,5 +27,10 @@ class HeatSpreadsheetsController < ApplicationController
   end
 
   def show
+    @heat_spreadsheet = HeatSpreadsheet.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.csv { render :text => @heat_spreadsheet.source }
+    end
   end
 end

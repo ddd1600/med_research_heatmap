@@ -1,5 +1,5 @@
 BootstrapRspecLibioCloneApp::Application.routes.draw do  
-  
+  match "r_heatmap" => "heat_spreadsheets#heatmap"  
   resources :heat_spreadsheets
   resources :sessions
   resources :spreadsheets

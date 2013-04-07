@@ -4,14 +4,11 @@ gem 'rails'
 
 group :development, :test do
   gem 'sqlite3'
+  gem 'rspec-rails'
 end
 
 group :production do
   gem 'pg'
-end
-
-group :development, :test do
-  gem 'rspec-rails'
 end
 
 group :assets do
@@ -35,3 +32,4 @@ gem 'httparty'
 gem 'watir-webdriver'
 
 gem 'rinruby'
+gem 'to-csv'

@@ -1,5 +1,11 @@
 class ChartHelper
   
+  def self.dump_png(heat_spreadsheet)
+    R.eval << EOF
+      
+    EOF
+  end
+  
   def self.sample_chart
     ary_of_arys = [["Anti-Inflammatory A P1", "24", "50", "150", "58", "Stable"], ["Anti-Inflammatory A P2", "24", "59", "200", "60", "Stable"], ["Anti-Inflammatory A P3", "24", "52", "250", "63", "Critical"], ["Anti-Inflammatory A P1", "72", "71", "150", "58", "Stable"], ["Anti-Inflammatory A P2", "72", "105", "200", "60", "Stable"], ["Anti-Inflammatory A P3", "72", "97", "250", "63", "Critical"], ["Anti-Inflammatory B P1", "24", "30", "150", "58", "Stable"], ["Anti-Inflammatory B P2", "24", "27", "200", "60", "Stable"], ["Anti-Inflammatory B P3", "24", "40", "250", "63", "Critical"], ["Anti-Inflammatory B P1", "72", "87", "150", "58", "Stable"], ["Anti-Inflammatory B P2", "72", "26", "200", "60", "Stable"], ["Anti-Inflammatory B P3", "72", "33", "250", "63", "Critical"], ["Pro-Inflammatory P1", "24", "47", "150", "58", "Stable"], ["Pro-Inflammatory P2", "24", "56", "200", "60", "Stable"], ["Pro-Inflammatory P3", "24", "67", "250", "63", "Critical"], ["Pro-Inflammatory P1", "72", "15", "150", "58", "Stable"], ["Pro-Inflammatory P2", "72", "15", "200", "60", "Stable"], ["Pro-Inflammatory P3", "72", "35", "250", "63", "Critical"]]
     headers = ["Patient", "Hours After Surgery", "Concentration", "Weight", "Height"]

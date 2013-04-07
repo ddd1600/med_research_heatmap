@@ -2,15 +2,17 @@
   <tr>
     <th>Name</th>
     <th>Data</th>
+    <%# <th>CSV String</th> %>
     <th>X</th>
   </tr>
   <% @heat_spreadsheets.each do |hs| %>
     <tr>
-      <td><%= hs.name %></td>
-      <td><% JSON.parse(hs.source).each do |row| %>
+      <td><%= link_to hs.name, heat_spreadsheet_path(hs) %></td>
+      <td><% CSV.parse(hs.source).each do |row| %>
             <%= row %><br/>
           <% end %>
       </td>
+      <%# <td><%= JSON.parse(hs.source).to_csv %>
       <td><%= link_to "Delete", heat_spreadsheet_path(hs), :method => "delete" %></td>
     </tr>
   <% end %>

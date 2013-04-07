@@ -1,2 +1,8 @@
-<h1>HeatSpreadsheets#show</h1>
-<p>Find me in app/views/heat_spreadsheets/show.html.erb</p>
+<h1><%= @heat_spreadsheet.name %></h1>
+<h3><%= link_to "Download CSV", "/heat_spreadsheets/#{@heat_spreadsheet.id}.csv"  %></h3>
+
+<div class="well">
+  <ul>
+    <%=  @heat_spreadsheet.source %>
+  </ul>
+</div>
